@@ -1,4 +1,4 @@
-package com.lincon.bookstoremanager.DTO;
+package com.lincon.bookstoremanager.dto;
 
 import lombok.Builder;
 import lombok.Data;
