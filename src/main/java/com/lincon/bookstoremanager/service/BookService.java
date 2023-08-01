@@ -3,8 +3,10 @@ package com.lincon.bookstoremanager.service;
 import com.lincon.bookstoremanager.dto.BookDTO;
 import com.lincon.bookstoremanager.dto.MessageResponseDTO;
 import com.lincon.bookstoremanager.entity.Book;
+import com.lincon.bookstoremanager.exception.BookException;
 import com.lincon.bookstoremanager.mapper.BookMapper;
 import com.lincon.bookstoremanager.repository.BookRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,7 @@ public class BookService {
 
     public BookDTO findById(Long id) {
         Optional<Book> optionalBook = bookRepository.findById(id);
-        return bookMapper.toDTO(optionalBook.get());
+        Book book = optionalBook.orElseThrow(() -> new BookException("Livro não encontrado com ID: " + id));
+        return bookMapper.toDTO(book);
     }
 }

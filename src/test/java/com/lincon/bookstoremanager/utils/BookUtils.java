@@ -10,6 +10,8 @@ import com.lincon.bookstoremanager.entity.Book;
 
 import java.net.URI;
 
+import static com.lincon.bookstoremanager.utils.AuthorUtils.createFakeAuthorDTO;
+
 public class BookUtils {
 
     private static final Faker faker = new Faker();
@@ -22,7 +24,7 @@ public class BookUtils {
                 .chapters(faker.number().numberBetween(1, 200))
                 .isbn("0-569-52069-9")
                 .publisherName(faker.book().publisher())
-                .author(createFakeBookDTO().getAuthor())
+                .author(createFakeAuthorDTO())
                 .build();
     }
 
