@@ -36,7 +36,7 @@ public class BookUtils {
                 .chapters(faker.number().numberBetween(1, 200))
                 .isbn("0-569-52069-9")
                 .publisherName(faker.book().publisher())
-                .author(createFakeBook().getAuthor())
+                .author(AuthorUtils.createFakeAuthor())
                 .build();
     }
 

@@ -1,5 +1,6 @@
 package com.lincon.bookstoremanager.dto;
 
+import com.lincon.bookstoremanager.entity.Author;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
