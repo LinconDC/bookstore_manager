@@ -2,6 +2,7 @@ package com.lincon.bookstoremanager.service;
 
 import com.lincon.bookstoremanager.dto.BookDTO;
 import com.lincon.bookstoremanager.entity.Book;
+import com.lincon.bookstoremanager.exception.BookNotFoundException;
 import com.lincon.bookstoremanager.repository.BookRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +24,7 @@ public class BookServiceTest {
     private BookService bookService;
 
     @Test
-    void whenGivenExistingIdThenReturnBook() {
+    void whenGivenExistingIdThenReturnBook() throws BookNotFoundException {
         Book expectedFoundBook = createFakeBook();
 
         when(bookRepository.findById(expectedFoundBook.getId())).thenReturn(Optional.of(expectedFoundBook));
